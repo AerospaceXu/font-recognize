@@ -10,6 +10,7 @@ import styled from 'styled-components';
 
 import Home from './pages/Home';
 import Train from './pages/Train';
+import Nav from "./Layouts/Nav";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,16 +20,7 @@ const App: React.FC = () => {
   return (
     <Wrapper>
       <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="train">Train</Link>
-            </li>
-          </ul>
-        </nav>
+        <Nav />
         <Switch>
           <Route exact path="/home">
             <Home />
