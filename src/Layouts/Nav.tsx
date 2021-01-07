@@ -1,44 +1,36 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { NavLink as Link } from 'react-router-dom';
+
+import { Menu } from 'antd';
 
 import styled from 'styled-components';
 
 const Wrapper = styled.nav`
   width: 100%;
   height: 88px;
-  > ul {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    > li > a {
-      color: rgba(0, 0, 0, 0.54);
-      font-size: 18px;
-      font-weight: 500;
-      margin: 12px;
-      padding: 12px;
-      transition: 75ms ease-in-out;
-
-      &.active,
-      &:hover {
-        color: rgb(0, 0, 0);
-      }
-    }
-  }
 `;
 
 const Nav: React.FC = () => {
+  const [current, setCurrent] = useState({
+    current: 'home',
+  });
+  const handleClick = useCallback((e) => {
+    setCurrent({ current: e.key });
+  }, []);
   return (
     <Wrapper>
-      <ul>
-        <li>
+      <Menu
+        onClick={handleClick}
+        selectedKeys={[current.current]}
+        mode="horizontal"
+      >
+        <Menu.Item key="home">
           <Link to="/home">Home</Link>
-        </li>
-        <li>
+        </Menu.Item>
+        <Menu.Item key="train">
           <Link to="train">Train</Link>
-        </li>
-      </ul>
+        </Menu.Item>
+      </Menu>
     </Wrapper>
   );
 };

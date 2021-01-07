@@ -1,14 +1,17 @@
 import { useCallback, useRef, useState } from 'react';
 // @ts-ignore
 import ml5 from 'ml5';
+import { message } from 'antd';
 
 export const useFeatureExtractorService = () => {
   const [modelReady, setModelReady] = useState<boolean>(false);
+  const [modelLoaded, setModelLoaded] = useState<boolean>(false);
 
   const classifier = useRef(
     ml5
       .featureExtractor('MobileNet', () => {
         setModelReady(true);
+        message.success('模型加载完成');
       })
       .classification()
   );
@@ -48,10 +51,26 @@ export const useFeatureExtractorService = () => {
     });
   }, []);
 
+  const save = useCallback(() => {
+    classifier.current.save();
+  }, []);
+
+  const load = useCallback(() => {
+    classifier.current.load(
+      process.env.PUBLIC_URL + './models/model.json',
+      () => {
+        setModelLoaded(true);
+      }
+    );
+  }, []);
+
   return {
     modelReady,
+    modelLoaded,
     addExample,
     trainModel,
     classify,
+    save,
+    load,
   };
 };
