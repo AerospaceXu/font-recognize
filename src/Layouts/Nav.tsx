@@ -19,8 +19,9 @@ const Wrapper = styled.nav`
       margin: 12px;
       padding: 12px;
       transition: 75ms ease-in-out;
-      
-      &.active, &:hover {
+
+      &.active,
+      &:hover {
         color: rgb(0, 0, 0);
       }
     }
