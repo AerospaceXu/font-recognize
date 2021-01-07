@@ -7,14 +7,16 @@ export const useFeatureExtractorService = () => {
   const [modelReady, setModelReady] = useState<boolean>(false);
   const [modelLoaded, setModelLoaded] = useState<boolean>(false);
 
-  const classifier = useRef(
-    ml5
+  const createClassifier = useCallback(() => {
+    return ml5
       .featureExtractor('MobileNet', () => {
-        setModelReady(true);
         message.success('模型加载完成');
+        setModelReady(true);
       })
-      .classification()
-  );
+      .classification();
+  }, []);
+
+  const classifier = useRef(createClassifier());
 
   const addExample = useCallback(
     (image: HTMLCanvasElement, font: string) => {
