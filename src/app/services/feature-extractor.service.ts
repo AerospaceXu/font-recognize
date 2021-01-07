@@ -37,6 +37,7 @@ export const useFeatureExtractorService = () => {
       classifier.current.train((lossValue: number) => {
         console.log('Loss is', lossValue);
       });
+      message.success('训练完成');
     } catch (e) {
       throw new Error(e);
     }
