@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import FontsPanel from '../app/components/FontsPanel';
 
@@ -22,9 +22,11 @@ const fonts = [
 ];
 
 const Train: React.FC = () => {
+  const fontExamplesRef = useRef<HTMLDivElement>(null);
+
   return (
     <Wrapper>
-      <FontsPanel fonts={fonts} />
+      <FontsPanel fonts={fonts} ref={fontExamplesRef} />
     </Wrapper>
   );
 };

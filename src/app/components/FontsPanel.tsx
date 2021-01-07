@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -30,9 +30,9 @@ interface Props {
   fonts: string[];
 }
 
-const FontsPanel: React.FC<Props> = ({ fonts }) => {
+const FontsPanel = forwardRef<HTMLDivElement, Props>(({ fonts }, ref) => {
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       {fonts.map((font) => (
         <div className="row" style={{ fontFamily: font }} key={font}>
           <h2>{font}</h2>
@@ -54,6 +54,6 @@ const FontsPanel: React.FC<Props> = ({ fonts }) => {
       ))}
     </Wrapper>
   );
-};
+});
 
 export default FontsPanel;
