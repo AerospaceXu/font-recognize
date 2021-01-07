@@ -34,21 +34,85 @@ const FontsPanel = forwardRef<HTMLDivElement, Props>(({ fonts }, ref) => {
   return (
     <Wrapper ref={ref}>
       {fonts.map((font) => (
-        <div className="row" style={{ fontFamily: font }} key={font}>
+        <div className="row" key={font}>
           <h2>{font}</h2>
           <div className="fonts">
-            <span style={{ fontSize: '14px', fontWeight: 200 }}>你好</span>
-            <span style={{ fontSize: '14px' }}>你好</span>
-            <span style={{ fontSize: '14px', fontWeight: 600 }}>你好</span>
-            <span style={{ fontSize: '20px', fontWeight: 200 }}>你好</span>
-            <span style={{ fontSize: '20px' }}>你好</span>
-            <span style={{ fontSize: '20px', fontWeight: 600 }}>你好</span>
-            <span style={{ fontSize: '28px', fontWeight: 200 }}>你好</span>
-            <span style={{ fontSize: '28px' }}>你好</span>
-            <span style={{ fontSize: '28px', fontWeight: 600 }}>你好</span>
-            <span style={{ fontSize: '38px', fontWeight: 200 }}>你好</span>
-            <span style={{ fontSize: '38px' }}>你好</span>
-            <span style={{ fontSize: '38px', fontWeight: 600 }}>你好</span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '14px',
+                fontWeight: 200,
+              }}
+            >
+              你好
+            </span>
+            <span style={{ fontFamily: font, fontSize: '14px' }}>你好</span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '14px',
+                fontWeight: 600,
+              }}
+            >
+              你好
+            </span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '20px',
+                fontWeight: 200,
+              }}
+            >
+              你好
+            </span>
+            <span style={{ fontFamily: font, fontSize: '20px' }}>你好</span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '20px',
+                fontWeight: 600,
+              }}
+            >
+              你好
+            </span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '28px',
+                fontWeight: 200,
+              }}
+            >
+              你好
+            </span>
+            <span style={{ fontFamily: font, fontSize: '28px' }}>你好</span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '28px',
+                fontWeight: 600,
+              }}
+            >
+              你好
+            </span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '38px',
+                fontWeight: 200,
+              }}
+            >
+              你好
+            </span>
+            <span style={{ fontFamily: font, fontSize: '38px' }}>你好</span>
+            <span
+              style={{
+                fontFamily: font,
+                fontSize: '38px',
+                fontWeight: 600,
+              }}
+            >
+              你好
+            </span>
           </div>
         </div>
       ))}
