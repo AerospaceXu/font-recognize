@@ -55,16 +55,20 @@ const Train: React.FC = () => {
     const fontSpans = Array.from(
       fontExamplesRef.current!.querySelectorAll('span')
     );
-    fontSpans.forEach((fontSpan) => {
+    fontSpans.forEach((fontSpan, index) => {
       const fontFamilyName = fontSpan.style.fontFamily;
       h2c(fontSpan).then(
-        (canvas) => addExample(canvas, fontFamilyName),
+        (canvas) => {
+          addExample(canvas, fontFamilyName);
+          if (index === fontSpans.length - 1) {
+            trainModel();
+          }
+        },
         (err) => {
           console.error(err);
         }
       );
     });
-    setTimeout(() => trainModel());
   };
 
   return (
